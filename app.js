@@ -19,7 +19,7 @@ app.use('/', require('./routes/report'));
 app.get('/about', (req, res) => {
     const developers = [
         { firstname: 'Yuli', lastname: 'Sotnikov', id: 208471391, email: 'yulisotnikov123@gmail.com' },
-        { firstname: 'Ravit', lastname: 'Swisa', id: 34534544, email: 'ravit@gmail.com' }
+        { firstname: 'Ravit', lastname: 'Suissa', id: 207386491, email: 'ahualravit@gmail.com' }
     ];
     res.json(developers);
 });
