@@ -1,4 +1,4 @@
-const Calorie = require('../models/Calorie');
+const Calorie = require('../models/calorie');
 const User = require('../models/user');
 
 exports.addCalorie = async (req, res) => {
