@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb+srv://Calories:App@cluster0.u5clyiu.mongodb.net/', {
+        await mongoose.connect('mongodb+srv://Calories:App@cluster0.u5clyiu.mongodb.net/calories_db', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
