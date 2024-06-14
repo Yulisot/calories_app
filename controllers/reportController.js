@@ -1,4 +1,5 @@
 const Calorie = require('../models/calorie');
+const User = require('../models/user');
 
 exports.getReport = async (req, res) => {
     try {
@@ -6,12 +7,30 @@ exports.getReport = async (req, res) => {
         const categories = ['breakfast', 'lunch', 'dinner', 'other'];
         const report = {};
 
-        // Loop through each category
-        for (const category of categories) {
-            // Query the database to find all entries for the given category
-            const entries = await Calorie.find({ user_id, year, month, category });
+        // Validate user_id, year, and month
+        const errors = [];
+        if (isNaN(parseInt(month)) || parseInt(month) < 1 || parseInt(month) > 12) {
+            errors.push("Invalid month. Month should be between 1 and 12");
+        }
+        if (isNaN(parseInt(year)) || parseInt(year) < 0) {
+            errors.push("Invalid year. Year should be a non-negative number");
+        }
+        if (!user_id || user_id.trim() === '') {
+            errors.push("Invalid user_id. User_id cannot be empty");
+        }
+        if (errors.length > 0) {
+            return res.status(400).json({ errors });
+        }
 
-            // Store the entries in the report object under the current category
+        // Check if the user exists
+        const userExists = await User.exists({ id: user_id });
+        if (!userExists) {
+            return res.status(404).send('User not found');
+        }
+
+        // Fetch the report from the Calorie collection
+        for (const category of categories) {
+            const entries = await Calorie.find({ user_id, year, month, category });
             report[category] = entries.map(entry => ({
                 day: entry.day,
                 description: entry.description,
@@ -22,7 +41,6 @@ exports.getReport = async (req, res) => {
         // Send the report as JSON response
         res.json(report);
     } catch (error) {
-        // Handle errors
         res.status(500).send(error.message);
     }
 };
