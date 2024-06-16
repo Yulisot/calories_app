@@ -7,6 +7,6 @@ const router = express.Router();
 const caloriesController = require('../controllers/Yuli Sotnikov 208471391 Ravit Suissa 207386491 caloriesController');
 
 // Define the route handler for post requests to /calories
-router.post('/addcalories', caloriesController.addCalorie);
+router.post('/addcalories/', caloriesController.addCalorie);
 
 module.exports = router;
