@@ -8,9 +8,9 @@ const UserSchema = new mongoose.Schema({
     birthday: Date
 });
 
-// Virtual field for formatted birthday
+// Virtual field for formatted birthday Using moment.js
 UserSchema.virtual('formattedBirthday').get(function() {
-    return moment(this.birthday).format('MMMM Do, YYYY'); // Using moment.js
+    return moment(this.birthday).format('MMMM Do, YYYY');
 
 });
 

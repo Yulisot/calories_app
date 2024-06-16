@@ -1,6 +1,7 @@
 const Calorie = require('../models/Yuli Sotnikov 208471391 Ravit Suissa 207386491 calorie');
 const User = require('../models/Yuli Sotnikov 208471391 Ravit Suissa 207386491 user');
 
+// Controller function to add a new calorie entry
 exports.addCalorie = async (req, res) => {
     try {
         const { user_id, year, month, day, description, category, amount } = req.body;

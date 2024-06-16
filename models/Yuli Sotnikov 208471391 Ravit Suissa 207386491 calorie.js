@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// This schema defines the structure for storing calorie data using Mongoose in a MongoDB database.
 const CalorieSchema = new mongoose.Schema({
     user_id: Number,
     year: Number,

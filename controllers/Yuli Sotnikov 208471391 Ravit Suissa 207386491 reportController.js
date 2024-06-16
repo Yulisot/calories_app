@@ -1,6 +1,7 @@
 const Calorie = require('../models/Yuli Sotnikov 208471391 Ravit Suissa 207386491 calorie');
 const User = require('../models/Yuli Sotnikov 208471391 Ravit Suissa 207386491 user');
 
+// Controller function to get a report of calorie entries for a specific user, year, and month
 exports.getReport = async (req, res) => {
     try {
         const { user_id, year, month } = req.query;
