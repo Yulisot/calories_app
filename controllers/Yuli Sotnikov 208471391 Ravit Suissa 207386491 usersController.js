@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/Yuli Sotnikov 208471391 Ravit Suissa 207386491 user');
 
 exports.getUserById = async (req, res) => {
     try {
